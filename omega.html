@@ -284,7 +284,7 @@
 				html('op_controls','controls : ' + ( controls == 0 ? "mouse" : "arrows / WASD" ) );
 				html('op_yinvert','invert Y axis : ' + ( yinvert == 0 ? "no" : "yes" ) );
 				html('op_difficulty','difficulty: ' + ( mode == 1 ? "normal" : "hard" ) );
-				html('colorconfig','color : ' + colorvar);
+				html('colorconfig','color : ' + (colorvar == undefined ? "no color" : colorvar));
 
 				set("omsensitivity",sensitivity);
 				set("omautoswitch",autoswitch);
@@ -664,7 +664,7 @@
 						key_right = true; break;
 					case 27:// ESC
 						materials.opacity = 0;
-						bdy.style.backgroundColor = '#000';
+						bdy.style.backgroundColor = colorvar;
 						introReset(false);
 						break;
 					case 67:// C
