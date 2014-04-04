@@ -44,7 +44,7 @@
 			}
 			
 			var status = 0;
-			var health,speed,maxspeed,speedlimit,view,tm,score,hiscore,gold,sail;
+			var health,speed,maxspeed,speedlimit,view,tm,score,hiscore,gold,sail,colorvar;
 			var shipX=shipY=0;
 			var fullscreen,windowHalfX,windowHalfY,windowX,windowY;
 			var mx=my=0;
@@ -232,6 +232,10 @@
 						sensitivity ++;
 						if ( sensitivity > 4 ) sensitivity = 0;
 						updateUI();
+						break;
+						
+					case "colorconfig":
+						colorvar = prompt("Color");
 						break;
 						
 					case "op_1stperson":
@@ -791,6 +795,7 @@
 			<span class='click' id='op_yinvert'>yinvert</span><br>
 			<span class='click' id='op_1stperson'>pov</span><br>
 			<span class='click' id='op_difficulty'>difficulty</span><br>
+			<span class='click' id='colorconfig'>color</span><br>
 			<br>
 			<span class='click' id='close_panel2'>&lsaquo;back&rsaquo;</span>
 		</div>
@@ -823,6 +828,7 @@
 			bind("shop");
 			bind("options");
 			bind("op_sensitivity");
+			bind("colorconfig");
 			bind("close_panel2");
 			bind("close_shop");
 			bind("op_1stperson");
@@ -1079,7 +1085,7 @@
 				if(!paused){
 					if ( speed > 0 ) {
 						clight = speed/speedlimit;
-						bdy.style.backgroundColor = '#999';
+						bdy.style.backgroundColor = colorvar;
 					} else {
 						clight = 0;
 						tmp = -Math.floor( Math.random()*speed*100);
